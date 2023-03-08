@@ -9,6 +9,7 @@ function App() {
 
   // lightbox
   const [showLightbox, setLightboxOpen] = useState(false)
+  const [currentImage, setCurrentImage] = useState(1);
 
   const openLightbox = () => {
     setLightboxOpen(true)
@@ -35,21 +36,26 @@ function App() {
         {/* LEFT */}
         <div className='overflow-hidden w-full md:w-1/3'>
           <div className='relative'>
-            <img className='w-full md:rounded-xl cursor-pointer' onClick={() => openLightbox(0)} src="images/image-product-1.jpg" alt="" />
-            <img className='absolute top-1/2 left-5 bg-white px-5 py-4 rounded-full' src="images/icon-previous.svg" alt="" />
-            <img className='absolute top-1/2 right-5 bg-white px-5 py-4 rounded-full' src="images/icon-next.svg" alt="" />
+            <img className='w-full md:rounded-xl cursor-pointer' onClick={() => openLightbox(0)} src={`images/image-product-${currentImage}.jpg`} alt="" />
+            <img className='absolute top-1/2 left-5 bg-white px-5 py-4 rounded-full cursor-pointer' src="images/icon-previous.svg" alt="" onClick={() => setCurrentImage(currentImage === 1 ? 4 : currentImage - 1)} />
+            <img className='absolute top-1/2 right-5 bg-white px-5 py-4 rounded-full cursor-pointer' src="images/icon-next.svg" alt="" onClick={() => setCurrentImage(currentImage === 4 ? 1 : currentImage + 1)} />
           </div>
 
           {/* Lightbox */}
           {showLightbox && (
-            <div className='fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-50 flex items-center justify-center' onClick={closeLightbox}>
-              <img className='max-w-full max-h-full' src="images/image-product-1.jpg" alt="" />
+            <div className='flex flex-col fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-50 flex items-center justify-center' onClick={closeLightbox}>
+              <img className='w-1/2 max-h-full rounded-xl' src={`images/image-product-${currentImage}.jpg`} alt="" />
+              <div className='flex justify-between space-x-4 mt-6'>
+                {[1, 2, 3, 4].map((index) => (
+                  <img className='w-24 rounded-xl cursor-pointer' src={`images/image-product-${index}.jpg`} key={index} onClick={(e) => { e.stopPropagation(); setCurrentImage(index); }} />
+                ))}
+              </div>
             </div>
           )}
 
           <div className='flex justify-between mt-6'>
-            {[1, 2, 3, 4].map((index) (
-              <img className='w-24 rounded-xl cursor-pointer' src={`images/image-product-${index}-thumbnail.jpg`} key={index} />
+            {[1, 2, 3, 4].map((index) => (
+              <img className='w-24 rounded-xl cursor-pointer' src={`images/image-product-${index}-thumbnail.jpg`} key={index} onClick={() => openLightbox(index)} />
             ))}
           </div>
         </div>
