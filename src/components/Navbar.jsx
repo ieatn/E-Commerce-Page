@@ -16,7 +16,7 @@ const Navbar = ({cart}) => {
                 </button>
                 {/* MOBILE NAV */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden bg-gray-50 fixed inset-0 z-50">
+                    <div className="md:hidden bg-white fixed inset-0 z-50">
                         <div className="flex flex-col items-center space-y-8 py-24">
                             <div>Collections</div>
                             <div>Men</div>

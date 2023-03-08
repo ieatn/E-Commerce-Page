@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import CheckoutPage from './components/CheckoutPage'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   const [cart, setCart] = useState(0)
 
   // page
-  const [page, setPage] = useState('products')
+  const [page, setPage] = useState('checkout')
 
   // lightbox
   const [showLightbox, setLightboxOpen] = useState(false)
@@ -32,13 +33,9 @@ function App() {
     setCart(counter)
   }
 
-  return (
-    <div className="App">
-
-      {/* NAVBAR */}
-      <Navbar cart={cart}/>
-
-      <div className="container flex flex-col md:flex-row md:justify-around items-center mx-auto md:mt-24">
+  const renderProducts = () => (
+    <>
+    <div className="container flex flex-col md:flex-row md:justify-around items-center mx-auto md:mt-24">
         {/* LEFT */}
         <div className='overflow-hidden w-full md:w-1/3'>
           <div className='relative'>
@@ -97,6 +94,15 @@ function App() {
           </div>
         </div>
       </div>
+    </>
+  )
+
+  return (
+    <div className="App">
+      <Navbar cart={cart}/>
+      {page === 'checkout' && <CheckoutPage />} 
+      {page === 'products' && renderProducts()}
+
     </div>
   )
 }
