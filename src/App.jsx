@@ -5,7 +5,10 @@ import Navbar from './components/Navbar'
 function App() {
 
   const [counter, setCounter] = useState(0)
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(0)
+
+  // page
+  const [page, setPage] = useState('products')
 
   // lightbox
   const [showLightbox, setLightboxOpen] = useState(false)
@@ -25,13 +28,16 @@ function App() {
     }
   };
 
-  const addToCart = (quantity) => {
-    console.log(quantity)
+  const addToCart = () => {
+    setCart(counter)
   }
 
   return (
     <div className="App">
-      <Navbar counter={counter}/>
+
+      {/* NAVBAR */}
+      <Navbar cart={cart}/>
+
       <div className="container flex flex-col md:flex-row md:justify-around items-center mx-auto md:mt-24">
         {/* LEFT */}
         <div className='overflow-hidden w-full md:w-1/3'>
@@ -44,7 +50,7 @@ function App() {
           {/* Lightbox */}
           {showLightbox && (
             <div className='flex flex-col fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-50 flex items-center justify-center' onClick={closeLightbox}>
-              <img className='w-1/2 max-h-full rounded-xl' src={`images/image-product-${currentImage}.jpg`} alt="" />
+              <img className='w-1/3 max-h-full rounded-xl' src={`images/image-product-${currentImage}.jpg`} alt="" />
               <div className='flex justify-between space-x-4 mt-6'>
                 {[1, 2, 3, 4].map((index) => (
                   <img className='w-24 rounded-xl cursor-pointer' src={`images/image-product-${index}.jpg`} key={index} onClick={(e) => { e.stopPropagation(); setCurrentImage(index); }} />
@@ -55,7 +61,7 @@ function App() {
 
           <div className='flex justify-between mt-6'>
             {[1, 2, 3, 4].map((index) => (
-              <img className='w-24 rounded-xl cursor-pointer' src={`images/image-product-${index}-thumbnail.jpg`} key={index} onClick={() => openLightbox(index)} />
+              <img className='w-24 rounded-xl cursor-pointer' src={`images/image-product-${index}-thumbnail.jpg`} key={index} onClick={() => setCurrentImage(index)}/>
             ))}
           </div>
         </div>
@@ -87,7 +93,7 @@ function App() {
                 <img src="images/icon-plus.svg" alt="" />
               </button>
             </div>
-            <button className='inline-flex items-center justify-center bg-orange-400 w-full rounded-md text-white font-bold py-3' onClick={() => addToCart(counter)}>Add to Cart</button>
+            <button className='inline-flex items-center justify-center bg-orange-400 w-full rounded-md text-white font-bold py-3' onClick={() => addToCart()}>Add to Cart</button>
           </div>
         </div>
       </div>
