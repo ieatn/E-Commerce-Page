@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import CheckoutPage from './components/CheckoutPage'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -96,10 +95,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar cart={cart}/>
-      {<CheckoutPage />} 
+      <Navbar cart={cart} />
       {renderProducts()}
-
     </div>
   )
 }
