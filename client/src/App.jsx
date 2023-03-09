@@ -8,9 +8,6 @@ function App() {
   const [counter, setCounter] = useState(0)
   const [cart, setCart] = useState(0)
 
-  // page
-  const [page, setPage] = useState('checkout')
-
   // lightbox
   const [showLightbox, setLightboxOpen] = useState(false)
   const [currentImage, setCurrentImage] = useState(1);
@@ -100,8 +97,8 @@ function App() {
   return (
     <div className="App">
       <Navbar cart={cart}/>
-      {page === 'checkout' && <CheckoutPage />} 
-      {page === 'products' && renderProducts()}
+      {<CheckoutPage />} 
+      {renderProducts()}
 
     </div>
   )

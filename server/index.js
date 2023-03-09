@@ -1,3 +1,5 @@
+// SERVER NOT IN USE YET
+// will use to set up stripe on backend instead of front end, CRUD routes, adding more products
 
 const express = require('express')
 const cors = require('cors')
