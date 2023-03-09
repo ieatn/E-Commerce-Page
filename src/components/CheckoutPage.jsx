@@ -1,17 +1,17 @@
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripePromise = loadStripe('your_stripe_public_key_here');
+const stripePromise = loadStripe('pk_test_1s5WylQ8DGGaYBscy5k5L1Lc00v0yymxZW');
 
 const CheckoutPage = () => {
   const handleClick = async (event) => {
     event.preventDefault();
     const stripe = await stripePromise;
     const result = await stripe.redirectToCheckout({
-      lineItems: [{ price: 'price_12345', quantity: 1 }],
+      lineItems: [{ price: 'price_1MjYIrFJJLeNOb5qceSUUiws', quantity: 1 }],
       mode: 'payment',
-      successUrl: 'https://your-website.com/success',
-      cancelUrl: 'https://your-website.com/cancel',
+      successUrl: 'http://127.0.0.1:5173/success',
+      cancelUrl: 'http://127.0.0.1:5173/cancel',
     });
 
     if (result.error) {
