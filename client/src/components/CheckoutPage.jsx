@@ -19,7 +19,7 @@ const CheckoutPage = () => {
       mode: 'payment',
       // app url/success and /cancel
       successUrl: 'http://127.0.0.1:5173/success',
-      cancelUrl: 'http://127.0.0.1:5173/',
+      cancelUrl: 'http://127.0.0.1:5173/cancel',
     });
 
     if (result.error) {
