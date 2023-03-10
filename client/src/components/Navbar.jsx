@@ -103,9 +103,11 @@ const Navbar = () => {
                                 <img className='cursor-pointer' onClick={() => deleteCart()} src="images/icon-delete.svg" alt="" />
                             </div>
                             {/* BOTTOM */}
-                            <button className="inline-flex items-center justify-center bg-orange-400 rounded-md text-white font-bold py-3">
-                                <Link to='/checkout'>Check Out</Link>
-                            </button>
+                            <Link to='/checkout'>
+                                <button className="inline-flex items-center justify-center bg-orange-400 rounded-md text-white font-bold py-3">
+                                    Check Out
+                                </button>
+                            </Link>
                         </div>
                     }
                 </div>
