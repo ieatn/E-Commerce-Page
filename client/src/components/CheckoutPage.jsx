@@ -3,10 +3,6 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import Navbar from './Navbar';
 
-import dotenv from 'dotenv';
-
-dotenv.config();
-
 // stripe test mode publish key
 const stripePromise = loadStripe('pk_test_1s5WylQ8DGGaYBscy5k5L1Lc00v0yymxZW');
 
