@@ -1,8 +1,10 @@
 import React from 'react';
 // npm i @stripe/stripe-js
 import { loadStripe } from '@stripe/stripe-js';
-
 import Navbar from './Navbar';
+
+
+
 
 // stripe test mode publish key
 const stripePromise = loadStripe('pk_test_1s5WylQ8DGGaYBscy5k5L1Lc00v0yymxZW');
@@ -26,10 +28,13 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div>
+    <>
       <Navbar />
-      <button className='container mx-auto flex items-center justify-center bg-orange-400 font-bold text-white rounded-md' onClick={handleClick}>Checkout</button>
-    </div>
+      <div className='container mx-auto flex items-center justify-center'>
+        <button className='w-full bg-orange-400 font-bold text-white rounded-md' onClick={handleClick}>Checkout</button>
+      </div>
+    </>
+    
   );
 };
 

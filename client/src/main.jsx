@@ -6,6 +6,9 @@ import CheckoutPage from './components/CheckoutPage'
 import Success from './pages/Success'
 import Cancel from './pages/Cancel'
 
+
+import { CartProvider } from './context/CartContext';
+
 const router = createBrowserRouter([
   {
     path: '/cancel',
@@ -28,6 +31,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>
 )

@@ -1,5 +1,7 @@
 // SERVER NOT IN USE YET
 // will use to set up stripe on backend instead of front end, CRUD routes, adding more products
+// ACTUALLY I COULD JUST USE A CMS LIKE STRAPI AND DELETE THIS SERVER
+
 
 const express = require('express')
 const cors = require('cors')
