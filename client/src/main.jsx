@@ -5,6 +5,9 @@ import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
 import CheckoutPage from './components/CheckoutPage'
 import Success from './pages/Success'
 import Cancel from './pages/Cancel'
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 
 import { CartProvider } from './context/CartContext';

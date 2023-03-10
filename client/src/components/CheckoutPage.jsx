@@ -18,8 +18,8 @@ const CheckoutPage = () => {
       lineItems: [{ price: 'price_1MjYIrFJJLeNOb5qceSUUiws', quantity: 1 }],
       mode: 'payment',
       // app url/success and /cancel
-      successUrl: 'https://e-commerce-page-j8wxrs5gk-ieatn.vercel.app/success',
-      cancelUrl: 'https://e-commerce-page-j8wxrs5gk-ieatn.vercel.app/cancel',
+      successUrl: `${process.env.VERCEL_URL}/success`,
+      cancelUrl: `${process.env.VERCEL_URL}/cancel`,
     });
 
     if (result.error) {
