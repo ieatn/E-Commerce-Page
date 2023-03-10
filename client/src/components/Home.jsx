@@ -60,11 +60,11 @@ const Home = () => {
             </div>
             </div>
             {/* RIGHT */}
-            <div className='space-y-6 md:w-1/3 border-2 mt-12 p-6 md:mt-0'>
+            <div className='space-y-6 md:w-1/3 mt-12 p-6 md:mt-0'>
     
             <p className="text-orange-400 font-bold uppercase">Sneaker Company</p>
             <h1 className='text-5xl font-bold'>Fall Limited Edition Sneakers</h1>
-            <p className='md:max-w-lg border-2'>
+            <p className='md:max-w-lg'>
                 These low-profile sneakers are your perfect casual wear companion. Featuring a 
                 durable rubber outer sole, they’ll withstand everything the weather can offer.
             </p>
