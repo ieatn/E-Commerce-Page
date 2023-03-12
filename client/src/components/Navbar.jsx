@@ -54,35 +54,8 @@ const Navbar = () => {
                 <img className="w-10" src="images/image-avatar.png" alt="" />
             </div>
 
-            {showCart && (
-                <div className="hidden md:flex items-center justify-center bg-white shadow-xl rounded-xl absolute top-full right-0 w-80 h-60">
-                    <div className="absolute top-0 left-0 border-b w-full p-4 font-bold">Cart</div>
-                    {cart === 0 ? 
-                        <div>Cart is empty</div> 
-                        : 
-                        <div className="flex flex-col w-full space-y-10 px-6 mt-10">
-                            {/* TOP */}
-                            <div className="flex justify-between items-center">
-                                {/* LEFT */}
-                                <img className="w-10" src="images/image-avatar.png" alt="" />
-                                {/* MIDDLE */}
-                                <div className="flex flex-col">
-                                    <p>Fall Limited Edition Sneakers </p>
-                                    <p>$125.00 x {cart} <span className="font-bold">${cart*125}</span></p>
-                                </div>
-                                {/* RIGHT */}
-                                <img className='cursor-pointer' onClick={() => deleteCart()} src="images/icon-delete.svg" alt="" />
 
-                            </div>
-                            {/* BOTTOM */}
-                            <button className="inline-flex items-center justify-center bg-orange-400 rounded-md text-white font-bold py-3">
-                                <Link to='/checkout'>Check Out</Link>
-                            </button>
-                        </div>
-                    }
-                </div>
-            )}
-            {/* mobile */}
+            {/* MOBILE MOBILE MOBILE */}
             {showCart && (
                 <div className="md:hidden flex z-50 items-center justify-center bg-white shadow-xl rounded-xl absolute top-full left-0 w-full h-80 mt-2">
                     <div className="absolute top-0 left-0 border-b w-full p-4 font-bold">Cart</div>
@@ -104,7 +77,7 @@ const Navbar = () => {
                             </div>
                             {/* BOTTOM */}
                             <Link to='/checkout'>
-                                <button className="inline-flex items-center justify-center bg-orange-400 rounded-md text-white font-bold py-3">
+                                <button className="inline-flex items-center justify-center bg-orange-400 rounded-md text-white font-bold py-3 w-full">
                                     Check Out
                                 </button>
                             </Link>
@@ -112,6 +85,40 @@ const Navbar = () => {
                     }
                 </div>
             )}
+
+            
+            {/* DESKTOP */}
+            {showCart && (
+                <div className="hidden md:flex items-center justify-center bg-white shadow-xl rounded-xl absolute top-full right-0 w-80 h-60">
+                    <div className="absolute top-0 left-0 border-b w-full p-4 font-bold">Cart</div>
+                    {cart === 0 ? 
+                        <div>Cart is empty</div> 
+                        : 
+                        <div className="flex flex-col w-full space-y-10 px-6 mt-10">
+                            {/* TOP */}
+                            <div className="flex justify-between items-center">
+                                {/* LEFT */}
+                                <img className="w-10" src="images/image-avatar.png" alt="" />
+                                {/* MIDDLE */}
+                                <div className="flex flex-col">
+                                    <p>Fall Limited Edition Sneakers </p>
+                                    <p>$125.00 x {cart} <span className="font-bold">${cart*125}</span></p>
+                                </div>
+                                {/* RIGHT */}
+                                <img className='cursor-pointer' onClick={() => deleteCart()} src="images/icon-delete.svg" alt="" />
+
+                            </div>
+                            {/* BOTTOM */}
+                            <Link to='/checkout'>
+                                <button className="inline-flex items-center justify-center bg-orange-400 rounded-md text-white font-bold py-3 w-full">
+                                    Check Out
+                                </button>
+                            </Link>
+                        </div>
+                    }
+                </div>
+            )}
+            
         </nav>
      );
 }
